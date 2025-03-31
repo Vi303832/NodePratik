@@ -1,32 +1,16 @@
-const express = reuqire("express");
+const express = require('express');
+
+const placesControllers = require('../controllers/places-controllers');
 
 const router = express.Router();
 
-const DUMMY_PLACES = [
-    {
-        id: "p1",
-        title: "Empire Yarra",
-        description: "One of the yarramın başı",
-        location: {
-            lat: 40.7484474,
-            lng: -73.9871516
+
+router.post("/", placesControllers.createPlace);
 
 
-        },
-        adress: "20 W 34th St, New York, NY Yarrak",
-        creator: "u1"
+router.get('/:pid', placesControllers.getPlaceById);
 
-    }
-
-
-
-]
-
-router.get("/", (req, res, next) => {
-
-
-
-
-})
+router.get('/user/:uid', placesControllers.getPlaceByUserId);
 
 module.exports = router;
+
